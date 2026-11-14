@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Painel · Bem Bordado</title>
+  <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Caveat:wght@600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/admin/admin.css">
+</head>
+<body>
+  <!-- Login -->
+  <section class="login" id="login" hidden>
+    <form class="login-card" id="loginForm">
+      <img src="/img/logo.jpg" alt="Bem Bordado" class="login-hoop" width="96" height="96">
+      <h1>Área da artesã</h1>
+      <p class="muted">Entre para ver suas encomendas</p>
+      <label class="f"><span>Usuário</span><input name="username" autocomplete="username" required autofocus></label>
+      <label class="f"><span>Senha</span>
+        <div class="pw">
+          <input name="password" type="password" autocomplete="current-password" required>
+          <button type="button" class="pw-toggle" aria-label="Mostrar senha">👁</button>
+        </div>
+      </label>
+      <p class="err" role="alert" hidden></p>
+      <button class="btn btn-block" type="submit">Entrar</button>
+      <a href="/" class="back">← voltar ao site</a>
+    </form>
+  </section>
+
+  <!-- App -->
+  <div class="app" id="app" hidden>
+    <aside class="side">
+      <a href="/" class="side-logo" target="_blank" rel="noopener" title="Abrir o site">
+        <img src="/img/logo.jpg" alt="" width="44" height="44">
+        <span id="sideBrand">Bem Bordado</span>
+      </a>
+      <nav class="nav">
+        <a href="#painel" data-view="painel"><span class="ico">✿</span><b>Painel</b></a>
+        <a href="#encomendas" data-view="encomendas"><span class="ico">✂</span><b>Encomendas</b><em class="count" id="navNew" hidden></em></a>
+        <a href="#prazos" data-view="prazos"><span class="ico">⏲</span><b>Prazos</b><em class="count warn" id="navLate" hidden></em></a>
+        <a href="#trabalhos" data-view="trabalhos"><span class="ico">❀</span><b>Trabalhos</b></a>
+        <a href="#config" data-view="config"><span class="ico">⚙</span><b>Configurações</b></a>
+      </nav>
+      <button class="logout" id="logout">Sair</button>
+    </aside>
+
+    <main class="main">
+      <header class="main-head">
+        <div>
+          <p class="hello" id="hello">Olá!</p>
+          <h1 id="viewTitle">Painel</h1>
+        </div>
+        <div class="head-actions">
+          <button class="btn btn-ghost" id="refresh" title="Atualizar">↻ Atualizar</button>
+          <button class="btn" id="newOrderBtn">+ Nova encomenda</button>
+        </div>
+      </header>
+      <div id="view"></div>
+    </main>
+  </div>
+
+  <!-- Dialog: encomenda -->
+  <dialog class="dlg" id="orderDlg">
+    <form id="orderForm" method="dialog">
+      <header class="dlg-head">
+        <div>
+          <p class="code" id="odCode"></p>
+          <h2 id="odTitle">Encomenda</h2>
+        </div>
+        <button type="button" class="x" data-close aria-label="Fechar">×</button>
+      </header>
+
+      <div class="dlg-body">
+        <div class="od-ref" id="odRef" hidden></div>
+
+        <h3 class="sec">Cliente</h3>
+        <div class="g2">
+          <label class="f"><span>Nome *</span><input name="customer_name" required maxlength="100"></label>
+          <label class="f"><span>WhatsApp</span>
+            <div class="inline">
+              <input name="phone" maxlength="30" inputmode="tel">
+              <a class="mini-btn whats" id="odWhats" target="_blank" rel="noopener" title="Abrir conversa">WhatsApp</a>
+            </div>
+          </label>
+        </div>
+        <label class="f"><span>E-mail</span><input name="email" type="email" maxlength="120"></label>
+
+        <h3 class="sec">Pedido</h3>
+        <div class="g3">
+          <label class="f"><span>Tipo</span>
+            <select name="category">
+              <option value="bordado">Bordado</option>
+              <option value="croche">Crochê</option>
+              <option value="bordado-croche">Bordado + Crochê</option>
+              <option value="outro">Outro</option>
+            </select>
+          </label>
+          <label class="f"><span>Quantidade</span><input name="quantity" type="number" min="1" max="999" value="1"></label>
+          <label class="f"><span>Status</span>
+            <select name="status">
+              <option value="novo">Nova</option>
+              <option value="orcamento">Orçamento enviado</option>
+              <option value="producao">Em produção</option>
+              <option value="pronto">Pronta</option>
+              <option value="entregue">Entregue</option>
+              <option value="cancelado">Cancelada</option>
+            </select>
+          </label>
+        </div>
+        <label class="f"><span>Descrição *</span><textarea name="description" rows="3" required maxlength="2000"></textarea></label>
+        <div class="g2">
+          <label class="f"><span>Cores</span><input name="colors" maxlength="200"></label>
+          <label class="f"><span>Tamanho</span><input name="size" maxlength="100"></label>
+        </div>
+
+        <h3 class="sec">Prazos</h3>
+        <div class="g2">
+          <label class="f"><span>Data pedida pela cliente</span><input name="desired_date" type="date"></label>
+          <label class="f"><span>Prazo de entrega (combinado)</span><input name="due_date" type="date"></label>
+        </div>
+
+        <h3 class="sec">Valores</h3>
+        <div class="g2">
+          <label class="f"><span>Valor total (R$)</span><input name="total_value" type="number" min="0" step="0.01" inputmode="decimal" placeholder="0,00"></label>
+          <label class="f"><span>Valor já recebido (R$)</span>
+            <div class="inline">
+              <input name="paid_value" type="number" min="0" step="0.01" inputmode="decimal" placeholder="0,00">
+              <button type="button" class="mini-btn" id="odHalf" title="Preencher 50% como sinal">50%</button>
+            </div>
+          </label>
+        </div>
+        <div class="pay-box" id="odPayBox"></div>
+
+        <label class="f"><span>Anotações internas</span><textarea name="notes" rows="3" maxlength="4000" placeholder="Só você vê isto: endereço de entrega, forma de pagamento, detalhes…"></textarea></label>
+        <p class="meta-line" id="odMeta"></p>
+      </div>
+
+      <p class="err" role="alert" hidden></p>
+      <footer class="dlg-foot">
+        <button type="button" class="btn btn-danger-ghost" id="odDelete">Excluir</button>
+        <span class="spacer"></span>
+        <button type="button" class="btn btn-ghost" data-close>Cancelar</button>
+        <button type="submit" class="btn">Salvar</button>
+      </footer>
+    </form>
+  </dialog>
+
+  <!-- Dialog: trabalho -->
+  <dialog class="dlg dlg-sm" id="workDlg">
+    <form id="workForm" method="dialog">
+      <header class="dlg-head">
+        <h2 id="wdTitle">Novo trabalho</h2>
+        <button type="button" class="x" data-close aria-label="Fechar">×</button>
+      </header>
+      <div class="dlg-body">
+        <label class="upload" id="wdUpload">
+          <input type="file" name="imagem" accept="image/*">
+          <img alt="" hidden>
+          <span>📷 Escolher foto</span>
+        </label>
+        <label class="f"><span>Título *</span><input name="title" required maxlength="120"></label>
+        <div class="g2">
+          <label class="f"><span>Categoria</span>
+            <select name="category">
+              <option value="bordado">Bordado</option>
+              <option value="croche">Crochê</option>
+              <option value="bordado-croche">Bordado + Crochê</option>
+              <option value="outro">Outro</option>
+            </select>
+          </label>
+          <label class="f"><span>Preço a partir de (R$)</span><input name="price_from" type="number" min="0" step="0.01" placeholder="opcional"></label>
+        </div>
+        <label class="f"><span>Descrição</span><textarea name="description" rows="3" maxlength="1000"></textarea></label>
+        <label class="check"><input type="checkbox" name="featured" value="1"> <span>Destacar como “queridinho”</span></label>
+      </div>
+      <p class="err" role="alert" hidden></p>
+      <footer class="dlg-foot">
+        <span class="spacer"></span>
+        <button type="button" class="btn btn-ghost" data-close>Cancelar</button>
+        <button type="submit" class="btn">Salvar</button>
+      </footer>
+    </form>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="/admin/admin.js" defer></script>
+</body>
+</html>

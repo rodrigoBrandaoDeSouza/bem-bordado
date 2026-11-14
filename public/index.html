@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bem Bordado · Bordados e crochê feitos à mão</title>
+  <meta name="description" content="Bordados livres, crochê e presentes personalizados feitos à mão, ponto por ponto. Faça sua encomenda.">
+  <meta name="theme-color" content="#f6c324">
+  <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/img/logo.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Caveat:wght@500;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/site.css">
+</head>
+<body>
+  <canvas id="thread" aria-hidden="true"></canvas>
+
+  <!-- Topo -->
+  <header class="topbar" id="topo">
+    <a href="#inicio" class="logo" aria-label="Bem Bordado, início">
+      <img src="/img/logo.jpg" alt="" class="logo-img" width="50" height="50">
+      <span class="brand"><b>Bem</b>BORDADO</span>
+    </a>
+    <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="menu" class="menu">
+      <a href="#trabalhos">Trabalhos</a>
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#acompanhar">Acompanhar pedido</a>
+      <a href="#encomendar" class="btn btn-small">Encomendar</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero" id="inicio">
+      <div class="hero-text">
+        <p class="kicker">feito à mão, ponto por ponto</p>
+        <h1>Bordados e crochê que <em>guardam histórias</em></h1>
+        <p class="lead">Peças únicas, bordadas com linha, agulha e paciência. Escolha um modelo da galeria ou me conte sua ideia — eu transformo em algo para guardar para sempre.</p>
+        <div class="hero-actions">
+          <a href="#encomendar" class="btn">Fazer uma encomenda</a>
+          <a href="#trabalhos" class="btn btn-ghost">Ver trabalhos</a>
+        </div>
+        <a class="insta-pill" data-insta target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.3" fill="currentColor"/></svg>
+          <span>@<span data-setting="instagram">bembordado_</span></span>
+        </a>
+      </div>
+
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 420 440" class="hoop-svg">
+          <defs>
+            <pattern id="linenP" width="7" height="7" patternUnits="userSpaceOnUse">
+              <rect width="7" height="7" fill="#f6c324"/>
+              <path d="M0 3.5h7M3.5 0v7" stroke="#e2ae10" stroke-width=".7"/>
+            </pattern>
+            <path id="sPetal" d="M0 -9 C6 -18 5 -28 0 -36 C-5 -28 -6 -18 0 -9Z"/>
+            <g id="flowerRose">
+              <g fill="#fde58c" stroke="#252220" stroke-width="1.60" stroke-linejoin="round"><use href="#sPetal" transform="rotate(0.0) scale(1.25)"/><use href="#sPetal" transform="rotate(20.0) scale(1.25)"/><use href="#sPetal" transform="rotate(40.0) scale(1.25)"/><use href="#sPetal" transform="rotate(60.0) scale(1.25)"/><use href="#sPetal" transform="rotate(80.0) scale(1.25)"/><use href="#sPetal" transform="rotate(100.0) scale(1.25)"/><use href="#sPetal" transform="rotate(120.0) scale(1.25)"/><use href="#sPetal" transform="rotate(140.0) scale(1.25)"/><use href="#sPetal" transform="rotate(160.0) scale(1.25)"/><use href="#sPetal" transform="rotate(180.0) scale(1.25)"/><use href="#sPetal" transform="rotate(200.0) scale(1.25)"/><use href="#sPetal" transform="rotate(220.0) scale(1.25)"/><use href="#sPetal" transform="rotate(240.0) scale(1.25)"/><use href="#sPetal" transform="rotate(260.0) scale(1.25)"/><use href="#sPetal" transform="rotate(280.0) scale(1.25)"/><use href="#sPetal" transform="rotate(300.0) scale(1.25)"/><use href="#sPetal" transform="rotate(320.0) scale(1.25)"/><use href="#sPetal" transform="rotate(340.0) scale(1.25)"/></g>
+              <circle r="14" fill="#fffdf7" stroke="#252220" stroke-width="2"/>
+              <g fill="#252220"><circle cx="4.2" cy="0.0" r="1.1"/><circle cx="2.1" cy="3.6" r="1.1"/><circle cx="-2.1" cy="3.6" r="1.1"/><circle cx="-4.2" cy="0.0" r="1.1"/><circle cx="-2.1" cy="-3.6" r="1.1"/><circle cx="2.1" cy="-3.6" r="1.1"/><circle cx="7.7" cy="0.0" r="1.1"/><circle cx="6.5" cy="4.2" r="1.1"/><circle cx="3.2" cy="7.0" r="1.1"/><circle cx="-1.1" cy="7.6" r="1.1"/><circle cx="-5.0" cy="5.8" r="1.1"/><circle cx="-7.4" cy="2.2" r="1.1"/><circle cx="-7.4" cy="-2.2" r="1.1"/><circle cx="-5.0" cy="-5.8" r="1.1"/><circle cx="-1.1" cy="-7.6" r="1.1"/><circle cx="3.2" cy="-7.0" r="1.1"/><circle cx="6.5" cy="-4.2" r="1.1"/><circle cx="11.2" cy="0.0" r="1.1"/><circle cx="10.3" cy="4.3" r="1.1"/><circle cx="7.9" cy="7.9" r="1.1"/><circle cx="4.3" cy="10.3" r="1.1"/><circle cx="0.0" cy="11.2" r="1.1"/><circle cx="-4.3" cy="10.3" r="1.1"/><circle cx="-7.9" cy="7.9" r="1.1"/><circle cx="-10.3" cy="4.3" r="1.1"/><circle cx="-11.2" cy="0.0" r="1.1"/><circle cx="-10.3" cy="-4.3" r="1.1"/><circle cx="-7.9" cy="-7.9" r="1.1"/><circle cx="-4.3" cy="-10.3" r="1.1"/><circle cx="-0.0" cy="-11.2" r="1.1"/><circle cx="4.3" cy="-10.3" r="1.1"/><circle cx="7.9" cy="-7.9" r="1.1"/><circle cx="10.3" cy="-4.3" r="1.1"/></g>
+            </g>
+            <g id="flowerPink">
+              <g fill="#fde58c" stroke="#252220" stroke-width="2.00" stroke-linejoin="round"><use href="#sPetal" transform="rotate(0.0) scale(1)"/><use href="#sPetal" transform="rotate(22.5) scale(1)"/><use href="#sPetal" transform="rotate(45.0) scale(1)"/><use href="#sPetal" transform="rotate(67.5) scale(1)"/><use href="#sPetal" transform="rotate(90.0) scale(1)"/><use href="#sPetal" transform="rotate(112.5) scale(1)"/><use href="#sPetal" transform="rotate(135.0) scale(1)"/><use href="#sPetal" transform="rotate(157.5) scale(1)"/><use href="#sPetal" transform="rotate(180.0) scale(1)"/><use href="#sPetal" transform="rotate(202.5) scale(1)"/><use href="#sPetal" transform="rotate(225.0) scale(1)"/><use href="#sPetal" transform="rotate(247.5) scale(1)"/><use href="#sPetal" transform="rotate(270.0) scale(1)"/><use href="#sPetal" transform="rotate(292.5) scale(1)"/><use href="#sPetal" transform="rotate(315.0) scale(1)"/><use href="#sPetal" transform="rotate(337.5) scale(1)"/></g>
+              <circle r="11" fill="#fffdf7" stroke="#252220" stroke-width="2"/>
+              <g fill="#252220"><circle cx="3.3" cy="0.0" r="1.1"/><circle cx="1.0" cy="3.1" r="1.1"/><circle cx="-2.7" cy="1.9" r="1.1"/><circle cx="-2.7" cy="-1.9" r="1.1"/><circle cx="1.0" cy="-3.1" r="1.1"/><circle cx="6.0" cy="0.0" r="1.1"/><circle cx="4.3" cy="4.3" r="1.1"/><circle cx="0.0" cy="6.0" r="1.1"/><circle cx="-4.3" cy="4.3" r="1.1"/><circle cx="-6.0" cy="0.0" r="1.1"/><circle cx="-4.3" cy="-4.3" r="1.1"/><circle cx="-0.0" cy="-6.0" r="1.1"/><circle cx="4.3" cy="-4.3" r="1.1"/><circle cx="8.8" cy="0.0" r="1.1"/><circle cx="7.6" cy="4.4" r="1.1"/><circle cx="4.4" cy="7.6" r="1.1"/><circle cx="0.0" cy="8.8" r="1.1"/><circle cx="-4.4" cy="7.6" r="1.1"/><circle cx="-7.6" cy="4.4" r="1.1"/><circle cx="-8.8" cy="0.0" r="1.1"/><circle cx="-7.6" cy="-4.4" r="1.1"/><circle cx="-4.4" cy="-7.6" r="1.1"/><circle cx="-0.0" cy="-8.8" r="1.1"/><circle cx="4.4" cy="-7.6" r="1.1"/><circle cx="7.6" cy="-4.4" r="1.1"/></g>
+            </g>
+            <g id="flowerWhite">
+              <g fill="#fffdf7" stroke="#252220" stroke-width="2.6"><use href="#sPetal" transform="rotate(0.0) scale(0.62)"/><use href="#sPetal" transform="rotate(36.0) scale(0.62)"/><use href="#sPetal" transform="rotate(72.0) scale(0.62)"/><use href="#sPetal" transform="rotate(108.0) scale(0.62)"/><use href="#sPetal" transform="rotate(144.0) scale(0.62)"/><use href="#sPetal" transform="rotate(180.0) scale(0.62)"/><use href="#sPetal" transform="rotate(216.0) scale(0.62)"/><use href="#sPetal" transform="rotate(252.0) scale(0.62)"/><use href="#sPetal" transform="rotate(288.0) scale(0.62)"/><use href="#sPetal" transform="rotate(324.0) scale(0.62)"/></g>
+              <circle r="5" fill="#252220"/>
+            </g>
+            <g id="flowerBlue">
+              <g fill="#fde58c" stroke="#252220" stroke-width="2.67" stroke-linejoin="round"><use href="#sPetal" transform="rotate(0.0) scale(0.75)"/><use href="#sPetal" transform="rotate(25.7) scale(0.75)"/><use href="#sPetal" transform="rotate(51.4) scale(0.75)"/><use href="#sPetal" transform="rotate(77.1) scale(0.75)"/><use href="#sPetal" transform="rotate(102.9) scale(0.75)"/><use href="#sPetal" transform="rotate(128.6) scale(0.75)"/><use href="#sPetal" transform="rotate(154.3) scale(0.75)"/><use href="#sPetal" transform="rotate(180.0) scale(0.75)"/><use href="#sPetal" transform="rotate(205.7) scale(0.75)"/><use href="#sPetal" transform="rotate(231.4) scale(0.75)"/><use href="#sPetal" transform="rotate(257.1) scale(0.75)"/><use href="#sPetal" transform="rotate(282.9) scale(0.75)"/><use href="#sPetal" transform="rotate(308.6) scale(0.75)"/><use href="#sPetal" transform="rotate(334.3) scale(0.75)"/></g>
+              <circle r="8" fill="#fffdf7" stroke="#252220" stroke-width="2"/>
+              <g fill="#252220"><circle cx="2.4" cy="0.0" r="1.1"/><circle cx="0.7" cy="2.3" r="1.1"/><circle cx="-1.9" cy="1.4" r="1.1"/><circle cx="-1.9" cy="-1.4" r="1.1"/><circle cx="0.7" cy="-2.3" r="1.1"/><circle cx="4.4" cy="0.0" r="1.1"/><circle cx="2.2" cy="3.8" r="1.1"/><circle cx="-2.2" cy="3.8" r="1.1"/><circle cx="-4.4" cy="0.0" r="1.1"/><circle cx="-2.2" cy="-3.8" r="1.1"/><circle cx="2.2" cy="-3.8" r="1.1"/><circle cx="6.4" cy="0.0" r="1.1"/><circle cx="4.9" cy="4.1" r="1.1"/><circle cx="1.1" cy="6.3" r="1.1"/><circle cx="-3.2" cy="5.5" r="1.1"/><circle cx="-6.0" cy="2.2" r="1.1"/><circle cx="-6.0" cy="-2.2" r="1.1"/><circle cx="-3.2" cy="-5.5" r="1.1"/><circle cx="1.1" cy="-6.3" r="1.1"/><circle cx="4.9" cy="-4.1" r="1.1"/></g>
+            </g>
+            <clipPath id="fabricClip"><circle cx="210" cy="230" r="170"/></clipPath>
+            <mask id="stemMask">
+              <g fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round">
+                <path class="draw d1" pathLength="1" d="M210 360 Q200 290 160 230"/>
+                <path class="draw d2" pathLength="1" d="M210 360 Q222 280 262 205"/>
+                <path class="draw d3" pathLength="1" d="M210 360 Q210 310 212 262"/>
+                <path class="draw d4" pathLength="1" d="M210 360 Q170 330 118 310"/>
+                <path class="draw d5" pathLength="1" d="M210 360 Q256 330 306 300"/>
+                <path class="draw d6" pathLength="1" d="M135 132 Q210 108 285 132"/>
+              </g>
+            </mask>
+          </defs>
+
+          <circle cx="210" cy="230" r="170" fill="url(#linenP)"/>
+          <g clip-path="url(#fabricClip)">
+            <g mask="url(#stemMask)" fill="none" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="8 4">
+              <path stroke="#252220" d="M210 360 Q200 290 160 230"/>
+              <path stroke="#252220" d="M210 360 Q222 280 262 205"/>
+              <path stroke="#252220" d="M210 360 Q210 310 212 262"/>
+              <path stroke="#252220" d="M210 360 Q170 330 118 310"/>
+              <path stroke="#252220" d="M210 360 Q256 330 306 300"/>
+              <path stroke="#252220" d="M135 132 Q210 108 285 132"/>
+            </g>
+
+            <g class="pop p1"><use href="#flowerRose" x="160" y="226"/></g>
+            <g class="pop p2"><use href="#flowerPink" x="262" y="200"/></g>
+            <g class="pop p3"><use href="#flowerWhite" x="212" y="258"/></g>
+            <g class="pop p4"><use href="#flowerBlue" x="118" y="308"/></g>
+            <g class="pop p5"><use href="#flowerRose" x="306" y="298"/></g>
+
+            <g class="pop p6">
+              <g fill="#fffdf7" fill-opacity=".45" stroke="#252220" stroke-width="2.5">
+                <path d="M206 318 q-10 -24 -34 -14 q12 22 34 14z"/>
+                <path d="M214 300 q10 -24 34 -14 q-12 22 -34 14z"/>
+                <path d="M190 280 q-12 -20 -32 -8 q14 18 32 8z"/>
+                <path d="M230 262 q8 -22 30 -14 q-10 20 -30 14z"/>
+              </g>
+            </g>
+            <g class="pop p7" fill="#252220">
+              <circle cx="150" cy="170" r="4.5"/><circle cx="280" cy="150" r="4.5"/><circle cx="320" cy="240" r="4.5"/><circle cx="100" cy="250" r="4.5"/><circle cx="240" cy="160" r="4.5"/>
+            </g>
+            <text x="210" y="112" text-anchor="middle" class="hoop-word pop p8">bem bordado</text>
+          </g>
+
+          <!-- aro de madeira -->
+          <circle cx="210" cy="230" r="177" fill="none" stroke="#c99b62" stroke-width="14"/>
+          <circle cx="210" cy="230" r="177" fill="none" stroke="#a87a45" stroke-width="2" stroke-dasharray="1 10" opacity=".7"/>
+          <circle cx="210" cy="230" r="169" fill="none" stroke="#8a5f30" stroke-width="1.5" opacity=".4"/>
+          <rect x="194" y="40" width="32" height="20" rx="5" fill="#b8a48a"/>
+          <rect x="203" y="28" width="14" height="16" rx="3" fill="#9a8770"/>
+
+          <!-- agulha com linha -->
+          <g class="needle">
+            <path d="M330 70 L392 8" stroke="#9aa3ab" stroke-width="4" stroke-linecap="round"/>
+            <ellipse cx="386" cy="14" rx="2" ry="5" transform="rotate(45 386 14)" fill="#fbf4e8"/>
+            <path class="needle-thread" d="M386 14 C 420 40, 400 90, 360 100 S 300 140, 330 70" fill="none" stroke="#252220" stroke-width="2.2"/>
+          </g>
+
+        </svg>
+
+        <!-- novelo -->
+        <svg class="yarn" viewBox="0 0 120 120" aria-hidden="true">
+          <circle cx="60" cy="60" r="46" fill="#f6c324" stroke="#252220" stroke-width="2.5"/>
+          <g fill="none" stroke="#252220" stroke-width="2.5" opacity=".8">
+            <path d="M20 40 Q60 20 100 45"/><path d="M15 60 Q60 35 105 62"/><path d="M20 80 Q60 55 100 82"/>
+            <path d="M40 16 Q25 60 45 104"/><path d="M62 14 Q45 60 66 106"/>
+          </g>
+          <path d="M100 82 C 130 100, 110 118, 140 118" fill="none" stroke="#252220" stroke-width="2.5"/>
+        </svg>
+      </div>
+    </section>
+
+    <div class="stitch-divider" aria-hidden="true">
+      <svg viewBox="0 0 1200 40" preserveAspectRatio="none"><path d="M0 20 Q 75 0 150 20 T 300 20 T 450 20 T 600 20 T 750 20 T 900 20 T 1050 20 T 1200 20"/></svg>
+    </div>
+
+    <!-- Galeria -->
+    <section class="section" id="trabalhos">
+      <div class="section-head">
+        <p class="kicker">portfólio</p>
+        <h2 class="stitched-title">Trabalhos feitos com carinho</h2>
+        <p class="sub">Clique em uma peça para ver de perto — e, se gostar, peça uma parecida.</p>
+      </div>
+
+      <div class="filters" role="tablist" aria-label="Filtrar trabalhos">
+        <button class="chip is-active" data-filter="todos" role="tab" aria-selected="true"><i class="btn-holes"></i>Todos</button>
+        <button class="chip" data-filter="bordado" role="tab" aria-selected="false"><i class="btn-holes"></i>Bordado</button>
+        <button class="chip" data-filter="croche" role="tab" aria-selected="false"><i class="btn-holes"></i>Crochê</button>
+        <button class="chip" data-filter="bordado-croche" role="tab" aria-selected="false"><i class="btn-holes"></i>Bordado + Crochê</button>
+      </div>
+
+      <div class="gallery" id="gallery" aria-live="polite">
+        <div class="gallery-empty">Carregando trabalhos…</div>
+      </div>
+    </section>
+
+    <!-- Como funciona -->
+    <section class="section section-tinted" id="como-funciona">
+      <div class="section-head">
+        <p class="kicker">passo a passo</p>
+        <h2 class="stitched-title">Como funciona a encomenda</h2>
+      </div>
+      <ol class="steps">
+        <li class="step">
+          <span class="step-btn">1</span>
+          <h3>Conte sua ideia</h3>
+          <p>Preencha o formulário com o que imagina: nomes, cores, tamanho, data e até uma foto de referência.</p>
+        </li>
+        <li class="step">
+          <span class="step-btn">2</span>
+          <h3>Receba o orçamento</h3>
+          <p>Eu chamo você no WhatsApp com o valor, o prazo e alguns rascunhos se precisar.</p>
+        </li>
+        <li class="step">
+          <span class="step-btn">3</span>
+          <h3>Ponto por ponto</h3>
+          <p>Com o sinal confirmado, a peça entra em produção. Acompanhe pelo código do pedido.</p>
+        </li>
+        <li class="step">
+          <span class="step-btn">4</span>
+          <h3>Pronto para presentear</h3>
+          <p>Tudo embaladinho com cuidado, para retirar ou enviar para qualquer lugar do Brasil.</p>
+        </li>
+      </ol>
+      <p class="lead-time" data-setting="lead_time"></p>
+    </section>
+
+    <!-- Encomenda -->
+    <section class="section" id="encomendar">
+      <div class="section-head">
+        <p class="kicker">vamos criar juntas?</p>
+        <h2 class="stitched-title">Faça sua encomenda</h2>
+        <p class="sub">Sem compromisso: você recebe o orçamento antes de qualquer pagamento.</p>
+      </div>
+
+      <div class="order-wrap">
+        <form id="orderForm" class="pattern-card" novalidate>
+          <div class="cut-line" aria-hidden="true">
+            <svg viewBox="0 0 24 24" class="scissors"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.6 7.6 20 18M8.6 16.4 20 6"/></svg>
+          </div>
+
+          <div class="ref-work" id="refWork" hidden>
+            <img alt="" id="refWorkImg">
+            <div>
+              <small>Quero uma peça parecida com</small>
+              <strong id="refWorkTitle"></strong>
+            </div>
+            <button type="button" class="link-btn" id="refWorkClear" aria-label="Remover referência">remover</button>
+          </div>
+          <input type="hidden" name="work_id" id="workId">
+
+          <fieldset class="field">
+            <legend>Que tipo de peça você quer?</legend>
+            <div class="type-picker">
+              <label class="type-opt">
+                <input type="radio" name="categoria" value="bordado" required>
+                <span>
+                  <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="18" fill="none" stroke="currentColor" stroke-width="3"/><path d="M15 27q4.5-9 9 0t9 0" fill="none" stroke="currentColor" stroke-width="2.5" stroke-dasharray="3 2"/></svg>
+                  Bordado
+                </span>
+              </label>
+              <label class="type-opt">
+                <input type="radio" name="categoria" value="croche">
+                <span>
+                  <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="26" r="15" fill="none" stroke="currentColor" stroke-width="3"/><path d="M12 20q12-8 24 2M10 28q14-8 28 0M16 38q8-14 4-27" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+                  Crochê
+                </span>
+              </label>
+              <label class="type-opt">
+                <input type="radio" name="categoria" value="bordado-croche">
+                <span>
+                  <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="14" fill="none" stroke="currentColor" stroke-width="3"/><g fill="currentColor"><circle cx="24" cy="5" r="3"/><circle cx="24" cy="43" r="3"/><circle cx="5" cy="24" r="3"/><circle cx="43" cy="24" r="3"/><circle cx="10.5" cy="10.5" r="3"/><circle cx="37.5" cy="37.5" r="3"/><circle cx="37.5" cy="10.5" r="3"/><circle cx="10.5" cy="37.5" r="3"/></g></svg>
+                  Os dois
+                </span>
+              </label>
+              <label class="type-opt">
+                <input type="radio" name="categoria" value="outro">
+                <span>
+                  <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 40C10 30 8 18 15 13s9 1 9 5c0-4 2-10 9-5s5 17-9 27z" fill="none" stroke="currentColor" stroke-width="3"/></svg>
+                  Outra ideia
+                </span>
+              </label>
+            </div>
+          </fieldset>
+
+          <div class="grid-2">
+            <label class="field">
+              <span>Seu nome *</span>
+              <input name="nome" autocomplete="name" required maxlength="100" placeholder="Como posso te chamar?">
+            </label>
+            <label class="field">
+              <span>WhatsApp *</span>
+              <input name="whatsapp" type="tel" autocomplete="tel" required maxlength="30" placeholder="(11) 99999-9999" inputmode="tel">
+            </label>
+          </div>
+
+          <label class="field">
+            <span>E-mail <small>(opcional)</small></span>
+            <input name="email" type="email" autocomplete="email" maxlength="120" placeholder="voce@email.com">
+          </label>
+
+          <label class="field">
+            <span>Conte sua ideia *</span>
+            <textarea name="descricao" rows="4" required maxlength="2000" placeholder="Ex.: bastidor de 20cm com o nome “Helena”, flores em tons de rosa, para porta de maternidade…"></textarea>
+          </label>
+
+          <div class="grid-3">
+            <label class="field">
+              <span>Cores preferidas</span>
+              <input name="cores" maxlength="200" placeholder="rosa, verde-oliva…">
+            </label>
+            <label class="field">
+              <span>Tamanho</span>
+              <input name="tamanho" maxlength="100" placeholder="20 cm, P, M…">
+            </label>
+            <label class="field">
+              <span>Quantidade</span>
+              <div class="stepper">
+                <button type="button" data-step="-1" aria-label="Diminuir">−</button>
+                <input name="quantidade" type="number" min="1" max="999" value="1" inputmode="numeric">
+                <button type="button" data-step="1" aria-label="Aumentar">+</button>
+              </div>
+            </label>
+          </div>
+
+          <div class="grid-2">
+            <label class="field">
+              <span>Para quando você precisa?</span>
+              <input name="data_desejada" type="date" id="desiredDate">
+            </label>
+            <div class="field">
+              <span>Foto de referência <small>(opcional)</small></span>
+              <label class="file-drop" id="fileDrop">
+                <input type="file" name="referencia" accept="image/*" id="fileInput">
+                <span class="file-drop-text">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4m0 0-4 4m4-4 4 4M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <em>Escolher imagem</em>
+                </span>
+                <img alt="" class="file-preview" hidden>
+              </label>
+            </div>
+          </div>
+
+          <!-- honeypot anti-spam -->
+          <label class="hp" aria-hidden="true">Site <input name="website" tabindex="-1" autocomplete="off"></label>
+
+          <p class="form-error" role="alert" hidden></p>
+          <button class="btn btn-block" type="submit">
+            <span class="btn-label">Enviar encomenda</span>
+            <span class="spinner" aria-hidden="true"></span>
+          </button>
+        </form>
+
+        <!-- Sucesso -->
+        <div class="ticket" id="ticket" hidden>
+          <div class="ticket-inner">
+            <svg viewBox="0 0 80 80" class="ticket-heart" aria-hidden="true"><path d="M40 68C14 50 8 32 18 22s20-4 22 6c2-10 12-16 22-6s4 28-22 46z" fill="#f6c324" stroke="#252220" stroke-width="3" stroke-dasharray="6 4"/></svg>
+            <h3>Recebi sua encomenda!</h3>
+            <p>Guarde este código para acompanhar o andamento:</p>
+            <div class="code-box">
+              <strong id="ticketCode">BB-XXXXXX</strong>
+              <button type="button" class="link-btn" id="copyCode">copiar</button>
+            </div>
+            <p>Em breve chamo você no WhatsApp com o orçamento. 💛</p>
+            <div class="ticket-actions">
+              <a class="btn" id="ticketWhats" target="_blank" rel="noopener" hidden>Falar no WhatsApp</a>
+              <button type="button" class="btn btn-ghost" id="newOrder">Fazer outra encomenda</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Acompanhar -->
+    <section class="section section-tinted" id="acompanhar">
+      <div class="section-head">
+        <p class="kicker">já encomendou?</p>
+        <h2 class="stitched-title">Acompanhe seu pedido</h2>
+      </div>
+      <form class="track-form" id="trackForm">
+        <input name="code" placeholder="BB-XXXXXX" aria-label="Código do pedido" maxlength="12" autocomplete="off" required>
+        <button class="btn" type="submit">Ver andamento</button>
+      </form>
+      <div class="track-result" id="trackResult" hidden></div>
+    </section>
+
+    <!-- Sobre -->
+    <section class="section" id="sobre">
+      <div class="about">
+        <div class="about-art" aria-hidden="true">
+          <div class="granny">
+            <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+          </div>
+        </div>
+        <div class="about-text">
+          <p class="kicker">quem borda</p>
+          <h2 class="stitched-title">Sobre o ateliê</h2>
+          <p class="about-p" data-setting="about"></p>
+          <div class="about-links">
+            <a class="btn btn-ghost" data-insta target="_blank" rel="noopener">Ver no Instagram</a>
+            <a class="btn btn-ghost" data-whats target="_blank" rel="noopener" hidden>WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="scallop" aria-hidden="true"></div>
+    <div class="footer-inner">
+      <p class="brand-foot"><img src="/img/logo.jpg" alt="Bem Bordado" width="104" height="104" loading="lazy"></p>
+      <p>Feito à mão, com tempo e carinho.</p>
+      <p class="footer-links">
+        <a data-insta target="_blank" rel="noopener">Instagram</a>
+        <a data-whats target="_blank" rel="noopener" hidden>WhatsApp</a>
+        <a href="/admin" class="admin-link">Área da artesã</a>
+      </p>
+    </div>
+  </footer>
+
+  <a class="whats-float" data-whats target="_blank" rel="noopener" aria-label="Conversar no WhatsApp" hidden>
+    <svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3zm0 23.6c-2 0-3.9-.5-5.5-1.5l-.4-.2-3.9 1 1-3.8-.3-.4A10.6 10.6 0 1 1 16 26.6zm5.8-7.9c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6.3-.5v-.5l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.2 1.4 3.5c.2.2 2.4 3.6 5.7 5 .8.4 1.4.6 1.9.7.8.3 1.5.2 2.1.1.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.1-.3-.2-.6-.4z"/></svg>
+  </a>
+
+  <!-- Lightbox -->
+  <dialog class="lightbox" id="lightbox">
+    <button class="lb-close" aria-label="Fechar">×</button>
+    <button class="lb-nav lb-prev" aria-label="Anterior">‹</button>
+    <figure>
+      <div class="lb-img-wrap"><img id="lbImg" alt=""></div>
+      <figcaption>
+        <span class="tag" id="lbTag"></span>
+        <h3 id="lbTitle"></h3>
+        <p id="lbDesc"></p>
+        <p class="lb-price" id="lbPrice"></p>
+        <button class="btn" id="lbOrder">Quero uma parecida</button>
+      </figcaption>
+    </figure>
+    <button class="lb-nav lb-next" aria-label="Próximo">›</button>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="/js/site.js" defer></script>
+</body>
+</html>
