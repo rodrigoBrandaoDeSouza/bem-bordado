@@ -43,7 +43,32 @@ npm start
 | `SESSION_SECRET` | gerado e salvo no banco | Chave de assinatura do login |
 | `NODE_ENV` | — | Use `production` em servidor com HTTPS (cookie `Secure`) |
 
-## Publicar
+## Publicar na VPS (Hostinger)
+
+1. No painel da Hostinger, crie a VPS com **Ubuntu 22.04 ou 24.04**.
+2. No DNS do domínio, aponte `@` e `www` (registros **A**) para o IP da VPS.
+3. Acesse a VPS por SSH como root e rode:
+   ```bash
+   curl -fsSL https://raw.githubusercontent.com/rodrigoBrandaoDeSouza/bem-bordado/main/deploy/instalar-vps.sh -o instalar.sh
+   bash instalar.sh seudominio.com.br
+   ```
+   No final, o script mostra o **login do painel com uma senha aleatória**. Anote essa senha.
+4. Para publicar alterações depois de um `git push`:
+   ```bash
+   bash /var/www/bem-bordado/deploy/atualizar.sh
+   ```
+
+| Onde | O quê |
+|---|---|
+| `/var/www/bem-bordado` | código |
+| `/var/lib/bem-bordado` | banco e fotos enviadas (não é apagado nas atualizações) |
+| `/etc/bem-bordado.env` | configurações (porta, senha inicial) |
+| `/var/backups/bem-bordado` | backup diário às 03:30, guardado por 14 dias |
+| `journalctl -u bem-bordado -f` | logs do site |
+
+O login do painel exige **HTTPS** (o cookie da sessão é `Secure`). O script já emite o certificado. Se o DNS ainda não tiver propagado, rode depois `certbot --nginx -d seudominio.com.br -d www.seudominio.com.br --redirect`.
+
+## Outras hospedagens
 
 Qualquer hospedagem que rode Node com **disco persistente** serve (Railway, Render com disco, Fly.io com volume, uma VPS). Aponte `DATA_DIR` para o volume persistente, defina `NODE_ENV=production` e `ADMIN_PASS` com uma senha forte. Faça backup periódico da pasta `DATA_DIR`.
 
