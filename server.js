@@ -35,7 +35,8 @@ if (!db.prepare('SELECT COUNT(*) AS n FROM users').get().n) {
   const user = process.env.ADMIN_USER || 'admin';
   const pass = process.env.ADMIN_PASS || 'bembordado';
   db.prepare('INSERT INTO users (username, password_hash) VALUES (?, ?)').run(user, hashPassword(pass));
-  console.log(`\n  Usuário admin criado: "${user}" / senha "${pass}"`);
+  // A senha só aparece no log quando é a padrão de desenvolvimento; a definida por ADMIN_PASS nunca é registrada.
+  console.log(`\n  Usuário admin criado: "${user}"${process.env.ADMIN_PASS ? ' (senha definida em ADMIN_PASS)' : ` / senha "${pass}"`}`);
   console.log('  Troque a senha em Painel > Configurações assim que entrar.\n');
 }
 
