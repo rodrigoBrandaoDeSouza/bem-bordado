@@ -424,6 +424,17 @@
     setTimeout(() => host.remove(), 4000);
   }
 
+  /* ---------------- Clique no bastidor: borda o girassol de novo ---------------- */
+  const hoop = $('.hoop-svg');
+  if (hoop && !reduced) {
+    const restitch = (e) => {
+      const fresh = e.currentTarget.cloneNode(true); // recomeça todas as animações
+      fresh.addEventListener('click', restitch);
+      e.currentTarget.replaceWith(fresh);
+    };
+    hoop.addEventListener('click', restitch);
+  }
+
   /* ---------------- Novelo arrastável (brincadeira) ---------------- */
   const yarn = $('.yarn');
   if (yarn) {
