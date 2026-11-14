@@ -45,15 +45,22 @@ npm start
 
 ## Publicar na VPS (Hostinger)
 
+A VPS pode hospedar várias aplicações: cada uma tem a própria porta interna, o próprio usuário de sistema e o próprio site no Nginx.
+
 1. No painel da Hostinger, crie a VPS com **Ubuntu 22.04 ou 24.04**.
-2. No DNS do domínio, aponte `@` e `www` (registros **A**) para o IP da VPS.
-3. Acesse a VPS por SSH como root e rode:
+2. No DNS do domínio, aponte `@` e `www` (registros **A**) para o IP da VPS. Para um subdomínio, basta o registro dele.
+3. **Uma vez por VPS**, faça a preparação base (Nginx, Certbot, Node 22, firewall, Fail2ban, atualizações de segurança):
+   ```bash
+   curl -fsSL https://raw.githubusercontent.com/rodrigoBrandaoDeSouza/bem-bordado/main/deploy/preparar-vps.sh -o preparar.sh
+   bash preparar.sh
+   ```
+4. Instale o Bem Bordado informando o domínio e uma porta interna livre (padrão `3101`):
    ```bash
    curl -fsSL https://raw.githubusercontent.com/rodrigoBrandaoDeSouza/bem-bordado/main/deploy/instalar-vps.sh -o instalar.sh
-   bash instalar.sh seudominio.com.br
+   EMAIL=voce@exemplo.com bash instalar.sh seudominio.com.br 3101
    ```
-   No final, o script mostra o **login do painel com uma senha aleatória**. Anote essa senha.
-4. Para publicar alterações depois de um `git push`:
+   No final, o script mostra o **login do painel com uma senha aleatória**. Anote essa senha. As portas usadas por cada app ficam anotadas em `/etc/apps-portas.txt`.
+5. Para publicar alterações depois de um `git push`:
    ```bash
    bash /var/www/bem-bordado/deploy/atualizar.sh
    ```
